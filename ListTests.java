@@ -3,22 +3,20 @@ import org.junit.*;
 
 interface StringChecker { boolean checkString(String s); }
 
-
-class Checker implements StringChecker {
-    public boolean checkString(String s) {
-        return s.length() > 3;
-    }
-}
-
-public class ListTests{
+public class ListTests {
 	@Test 
 	public void testFilter() {
-    List<String> input1 = new ArrayList<>(Arrays.asList ());
-    List<String> input2 = new ArrayList<>(Arrays.asList ("xyz", "abc"));
-    List<String> input3 = new ArrayList<>(Arrays.asList ("xyz", "abc"));
-    List<String> input4 = new ArrayList<>(Arrays.asList ("xyz", "abc"));
-    Checker string_checker = new Checker();
-    assertArrayEquals(new ArrayList<>(Arrays.asList ("xyz", "abc")), ListExamples.filter(input1, string_checker));
+    StringChecker temp = new StringChecker(){
+        
+    };
+    List<String> input1 = new ArrayList<String>(Arrays.asList ());
+    List<String> input2 = new ArrayList<String>(Arrays.asList ("xyz", "abc"));
+    List<String> input3 = new ArrayList<String>(Arrays.asList ("abc"));
+    List<String> input4 = new ArrayList<String>(Arrays.asList ("xyz", "a"));
+    assertArrayEquals(new ArrayList<>(), ListExamples.filter(input1, temp));
+    assertArrayEquals(new ArrayList<String>(Arrays.asList ("xyz", "abc")), ListExamples.filter(input2, temp));
+    assertArrayEquals(new ArrayList<String>(Arrays.asList ("abc")), ListExamples.filter(input3, temp));
+    assertArrayEquals(new ArrayList<String>(Arrays.asList ("xyz", "a")), ListExamples.filter(input4, temp));
 	}
 
 
